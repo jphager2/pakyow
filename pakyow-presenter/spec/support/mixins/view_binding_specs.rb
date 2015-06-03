@@ -23,5 +23,19 @@ shared_examples :binding_specs do
         expect(view.scope(:scope2).prop(:prop2)[0].text).to eq(data[:prop2])
       end
     end
+
+    context 'when the scope is nested within multiple partials' do
+      let :view do
+        ViewContext.new(ViewComposer.from_path(store, 'scope_in_multiple_partials'), {})
+      end
+
+      let :data do
+        {}
+      end
+
+      it 'binds data to the scope' do
+        view.scope(:article).apply(data)
+      end
+    end
   end
 end
