@@ -1,5 +1,6 @@
 require_relative '../../spec_helper'
-require 'core/config/session'
+require 'pakyow-core'
+#require 'core/config/session'
 
 describe 'config.session' do
   it 'registers session config' do

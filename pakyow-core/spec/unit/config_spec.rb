@@ -1,5 +1,6 @@
 require_relative '../spec_helper'
-require 'core/config'
+require 'pakyow-core'
+#require 'core/config'
 
 describe Pakyow::Config do
   before do
@@ -51,6 +52,7 @@ describe Pakyow::Config do
     end
 
     it 'gives precedence to env value' do
+      Pakyow::App.stage(:test)
       expect(Pakyow::Config.test.foo).to eq(:foo)
     end
 
